@@ -506,6 +506,7 @@ figcaption {
   }
 
   .section-grid,
+  .world-content,
   .contact,
   .split,
   .site-footer {
@@ -526,9 +527,40 @@ figcaption {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .credits {
-    justify-content: flex-start;
+  .site-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
   }
+
+  .credits {
+      justify-content: center;
+      text-align: center;
+  }
+
+  .world-content {
+      display: block;
+      width: 100%;
+      padding: 70px 20px;
+      margin: 0;
+  }
+
+  .world-section .section-label,
+  .world-section .copy-block {
+      width: 100%;
+      max-width: none;
+  }
+
+      .world-section .section-label {
+        margin-bottom: 2rem;
+    }
+
+  .world-content .section-label span {
+    margin-bottom: 0;
+  }
+
 }
 
 @media (max-width: 560px) {
