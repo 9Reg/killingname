@@ -162,30 +162,14 @@ h3 {
   line-height: 1;
 }
 
-/*
- * The artist's title PNG is a 4000×3000 canvas; the lettering (with drips and
- * spatter) fills only x 190–3992, y 1034–2471. .title-crop is sized to that box
- * and the image is offset inside it, so the wordmark sits as tight as the old
- * 1060×401 file did. Percent margins resolve against the crop's width (3802).
- */
-.title-crop {
-  display: block;
-  width: clamp(340px, 45vw, 760px);
-  aspect-ratio: 3802 / 1437;
-  overflow: hidden;
-}
-
 .title-image {
   display: block;
-  width: 105.208%;       /* 4000 / 3802 */
-  max-width: none;
+  width: clamp(340px, 45vw, 760px);
   height: auto;
-  margin-left: -4.997%;  /* 190 / 3802 */
-  margin-top: -27.196%;  /* 1034 / 3802 */
 }
 
 @media (max-width: 768px) {
-  .title-crop {
+  .title-image {
     width: 100%;
   }
 }
@@ -281,12 +265,6 @@ h3 {
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.7),
     0 0 46px rgba(167, 53, 36, 0.22);
-}
-
-.book-cover figcaption {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.66rem;
 }
 
 .copy-block {
