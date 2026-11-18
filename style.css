@@ -162,28 +162,32 @@ h3 {
   line-height: 1;
 }
 
-.title-image {
+/*
+ * The artist's title PNG is a 4000×3000 canvas; the lettering (with drips and
+ * spatter) fills only x 190–3992, y 1034–2471. .title-crop is sized to that box
+ * and the image is offset inside it, so the wordmark sits as tight as the old
+ * 1060×401 file did. Percent margins resolve against the crop's width (3802).
+ */
+.title-crop {
   display: block;
   width: clamp(340px, 45vw, 760px);
-  height: auto;
+  aspect-ratio: 3802 / 1437;
+  overflow: hidden;
 }
 
-/* @media (max-width: 768px) {
-    .title-image {
-        width: 95vw;
-        max-width: none;
-    }
-} */
+.title-image {
+  display: block;
+  width: 105.208%;       /* 4000 / 3802 */
+  max-width: none;
+  height: auto;
+  margin-left: -4.997%;  /* 190 / 3802 */
+  margin-top: -27.196%;  /* 1034 / 3802 */
+}
 
 @media (max-width: 768px) {
-    #hero-title {
-        width: 100%;
-    }
-
-    .title-image {
-        width: 100%;
-        height: auto;
-    }
+  .title-crop {
+    width: 100%;
+  }
 }
 
 .deck {
@@ -250,6 +254,39 @@ h3 {
   margin-bottom: 16px;
   border-top: 1px solid var(--blood);
   color: var(--blood);
+}
+
+.intro.section-grid {
+  grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
+}
+
+.novel-aside {
+  display: grid;
+  align-content: start;
+  gap: 34px;
+}
+
+.book-cover {
+  margin: 0;
+  width: 100%;
+  max-width: 250px;
+}
+
+.book-cover img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 778 / 1170;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.7),
+    0 0 46px rgba(167, 53, 36, 0.22);
+}
+
+.book-cover figcaption {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
 }
 
 .copy-block {
@@ -521,6 +558,14 @@ figcaption {
 
   .section-label span {
     margin-bottom: 0;
+  }
+
+  .intro.section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover {
+    max-width: 220px;
   }
 
   .fact-grid {
