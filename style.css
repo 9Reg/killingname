@@ -168,22 +168,10 @@ h3 {
   height: auto;
 }
 
-/* @media (max-width: 768px) {
-    .title-image {
-        width: 95vw;
-        max-width: none;
-    }
-} */
-
 @media (max-width: 768px) {
-    #hero-title {
-        width: 100%;
-    }
-
-    .title-image {
-        width: 100%;
-        height: auto;
-    }
+  .title-image {
+    width: 100%;
+  }
 }
 
 .deck {
@@ -250,6 +238,33 @@ h3 {
   margin-bottom: 16px;
   border-top: 1px solid var(--blood);
   color: var(--blood);
+}
+
+.intro.section-grid {
+  grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
+}
+
+.novel-aside {
+  display: grid;
+  align-content: start;
+  gap: 34px;
+}
+
+.book-cover {
+  margin: 0;
+  width: 100%;
+  max-width: 250px;
+}
+
+.book-cover img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 778 / 1170;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.7),
+    0 0 46px rgba(167, 53, 36, 0.22);
 }
 
 .copy-block {
@@ -521,6 +536,14 @@ figcaption {
 
   .section-label span {
     margin-bottom: 0;
+  }
+
+  .intro.section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover {
+    max-width: 220px;
   }
 
   .fact-grid {
